@@ -1,2 +1,3 @@
 # My-Analysis
-jytjyr
+
+One of the simplest possibilities is that the Higgs boson decays to a pair of new spin zero particles, which decay promptly to a pair of SM particles, or may be long-lived as well. The main objective of the project is to pursue a research program with a focus on searches where the Higgs decaying to new lighter states beyond the SM of the form H->SS/AA->2Y 2Yʹ, where S(A) is a new (pseudo)scalar particle, and Y, Y’ are SM particles that are pair produced in each new particle decay. Currently my analysis is concentrated on the kinematic properties of those particles specificaly for masses mA=2OGeV and mA=60GeV.
