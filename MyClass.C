@@ -42,8 +42,8 @@ void MyClass::Loop()
 
   
   TH1F *jet_pt_tot = new TH1F("jet_pt_tot","jet_pt", 100, 20,300);
-  TH1F *jet_eta_tot = new TH1F("jet_eta_tot","jet_eta", 100, -5,5);
-  TH1F *jet_phi_tot = new TH1F("jet_phi_tot","jet_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *jet_eta_tot = new TH1F("jet_eta_tot","jet_eta", 100, -6,6);
+  TH1F *jet_phi_tot = new TH1F("jet_phi_tot","jet_phi", 100, -5,5);
   
   TH1F *h_en_mult = new TH1F("en_mult", "electrons", 5, 0, 5);
   TH1F *h_mn_mult = new TH1F("mn_mult", "muons", 5, 0, 5);
@@ -54,82 +54,82 @@ void MyClass::Loop()
   
   TH1F *h_jet1_pt = new TH1F("h_jet1_pt", "jet1_pt", 100, 20, 500);
   TH1F *h_jet1_eta = new TH1F("h_jet1_eta", "jet1_eta", 100, -6, 6);
-  TH1F *h_jet1_phi = new TH1F("h_jet1_phi", "jet1_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jet1_phi = new TH1F("h_jet1_phi", "jet1_phi", 100, -5,5);
   TH1F *h_jet1_m = new TH1F("h_jet1_m", "jet1_m", 100, 0, 60);
   
   TH1F *h_jet2_pt = new TH1F("h_jet2_pt", "jet2_pt", 100, 20, 500);
   TH1F *h_jet2_eta = new TH1F("h_jet2_eta", "jet2_eta", 100, -6, 6);
-  TH1F *h_jet2_phi = new TH1F("h_jet2_phi", "jet2_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jet2_phi = new TH1F("h_jet2_phi", "jet2_phi", 100, -5,5);
   TH1F *h_jet2_m = new TH1F("h_jet2_m", "jet2_m", 100, 0, 60);
   
   TH1F *h_jet3_pt = new TH1F("h_jet3_pt", "jet3_pt", 100, 20, 200);
   TH1F *h_jet3_eta = new TH1F("h_jet3_eta", "jet3_eta", 100, -6, 6);
-  TH1F *h_jet3_phi = new TH1F("h_jet3_phi", "jet3_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jet3_phi = new TH1F("h_jet3_phi", "jet3_phi", 100, -5,5);
   TH1F *h_jet3_m = new TH1F("h_jet3_m", "jet3_m", 100, 0, 60);
   
   TH1F *h_jet4_pt = new TH1F("h_jet4_pt", "jet4_pt", 100, 20, 150);
   TH1F *h_jet4_eta = new TH1F("h_jet4_eta", "jet4_eta", 100, -6, 6);
-  TH1F *h_jet4_phi = new TH1F("h_jet4_phi", "jet4_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jet4_phi = new TH1F("h_jet4_phi", "jet4_phi", 100, -5,5);
   TH1F *h_jet4_m = new TH1F("h_jet4_m", "jet4_m", 100, 0, 60);
 
   TH1F *h_bjet1_pt_step4 = new TH1F("h_bjet1_pt_step4", "bjet1_pt_step4", 100, 20, 350);
   TH1F *h_bjet1_eta_step4 = new TH1F("h_bjet1_eta_step4", "bjet1_eta_step4", 100, -6, 6);
-  TH1F *h_bjet1_phi_step4 = new TH1F("h_bjet1_phi_step4", "bjet1_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet1_phi_step4 = new TH1F("h_bjet1_phi_step4", "bjet1_phi_step4", 100, -5,5);
   TH1F *h_bjet1_m_step4 = new TH1F("h_bjet1_m_step4", "bjet1_m_step4", 100, 0, 60);
 
   TH1F *h_bjet2_pt_step4 = new TH1F("h_bjet2_pt_step4", "bjet2_pt_step4", 100, 20, 250);
   TH1F *h_bjet2_eta_step4 = new TH1F("h_bjet2_eta_step4", "bjet2_eta_step4", 100, -6, 6);
-  TH1F *h_bjet2_phi_step4 = new TH1F("h_bjet2_phi_step4", "bjet2_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet2_phi_step4 = new TH1F("h_bjet2_phi_step4", "bjet2_phi_step4", 100, -5,5);
   TH1F *h_bjet2_m_step4 = new TH1F("h_bjet2_m_step4", "bjet2_m_step4", 100, 0, 40);
 
   TH1F *h_bjet3_pt_step4 = new TH1F("h_bjet3_pt_step4", "bjet3_pt_step4", 100, 20, 150);
   TH1F *h_bjet3_eta_step4 = new TH1F("h_bjet3_eta_step4", "bjet3_eta_step4", 100, -6, 6);
-  TH1F *h_bjet3_phi_step4 = new TH1F("h_bjet3_phi_step4", "bjet3_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet3_phi_step4 = new TH1F("h_bjet3_phi_step4", "bjet3_phi_step4", 100, -5,5);
   TH1F *h_bjet3_m_step4 = new TH1F("h_bjet3_m_step4_step4", "bjet3_m_step4", 100, 0, 40);
 
   TH1F *h_bjet4_pt_step4 = new TH1F("h_bjet4_pt_step4", "bjet4_pt_step4", 100, 20, 100);
   TH1F *h_bjet4_eta_step4 = new TH1F("h_bjet4_eta_step4", "bjet4_eta_step4", 100, -6, 6);
-  TH1F *h_bjet4_phi_step4 = new TH1F("h_bjet4_phi_step4", "bjet4_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet4_phi_step4 = new TH1F("h_bjet4_phi_step4", "bjet4_phi_step4", 100, -5,5);
   TH1F *h_bjet4_m_step4 = new TH1F("h_bjet4_m_step4", "bjet4_m_step4", 100, 0, 30);
 
   TH1F *h_jetoutg1_pt_step4 = new TH1F("h_jetoutg1_pt_step4", "jetoutg1_pt_step4", 100, 20, 400);
   TH1F *h_jetoutg1_eta_step4 = new TH1F("h_jetoutg1_eta_step4", "jetoutg1_eta_step4", 100, -6, 6);
-  TH1F *h_jetoutg1_phi_step4 = new TH1F("h_jetoutg1_phi_step4", "jetoutg1_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jetoutg1_phi_step4 = new TH1F("h_jetoutg1_phi_step4", "jetoutg1_phi_step4", 100, -5,5);
   TH1F *h_jetoutg1_m_step4 = new TH1F("h_jetoutg1_m_step4_step4", "jetoutg1_m_step4", 100, 0, 60);
 
   TH1F *h_jetoutg2_pt_step4 = new TH1F("h_jetoutg2_pt_step4", "jetoutg2_pt_step4", 100, 20, 200);
   TH1F *h_jetoutg2_eta_step4 = new TH1F("h_jetoutg2_eta_step4", "jetoutg2_eta_step4", 100, -6, 6);
-  TH1F *h_jetoutg2_phi_step4 = new TH1F("h_jetoutg2_phi_step4", "jetoutg2_phi_step4", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jetoutg2_phi_step4 = new TH1F("h_jetoutg2_phi_step4", "jetoutg2_phi_step4", 100, -5,5);
   TH1F *h_jetoutg2_m_step4 = new TH1F("h_jetoutg2_m_step4", "jetoutg2_m_step4", 100, 0, 50);
 
   TH1F *h_bjet1_pt_step3 = new TH1F("h_bjet1_pt_step3", "bjet1_pt_step3", 100, 20, 350);
   TH1F *h_bjet1_eta_step3 = new TH1F("h_bjet1_eta_step3", "bjet1_eta_step3", 100, -6, 6);
-  TH1F *h_bjet1_phi_step3 = new TH1F("h_bjet1_phi_step3", "bjet1_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet1_phi_step3 = new TH1F("h_bjet1_phi_step3", "bjet1_phi_step3", 100, -5,5);
   TH1F *h_bjet1_m_step3 = new TH1F("h_bjet1_m_step3", "bjet1_m_step3", 100, 0, 60);
 
   TH1F *h_bjet2_pt_step3 = new TH1F("h_bjet2_pt_step3", "bjet2_pt_step3", 100, 20, 250);
   TH1F *h_bjet2_eta_step3 = new TH1F("h_bjet2_eta_step3", "bjet2_eta_step3", 100, -6, 6);
-  TH1F *h_bjet2_phi_step3 = new TH1F("h_bjet2_phi_step3", "bjet2_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet2_phi_step3 = new TH1F("h_bjet2_phi_step3", "bjet2_phi_step3", 100, -5,5);
   TH1F *h_bjet2_m_step3 = new TH1F("h_bjet2_m_step3", "bjet2_m_step3", 100, 0, 60);
 
   TH1F *h_bjet3_pt_step3 = new TH1F("h_bjet3_pt_step3", "bjet3_pt_step3", 100, 20, 150);
   TH1F *h_bjet3_eta_step3 = new TH1F("h_bjet3_eta_step3", "bjet3_eta_step3", 100, -6, 6);
-  TH1F *h_bjet3_phi_step3 = new TH1F("h_bjet3_phi_step3", "bjet3_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet3_phi_step3 = new TH1F("h_bjet3_phi_step3", "bjet3_phi_step3", 100, -5,5);
   TH1F *h_bjet3_m_step3 = new TH1F("h_bjet3_m_step3", "bjet3_m_step3", 100, 0, 40);
 
   TH1F *h_bjet4_pt_step3 = new TH1F("h_bjet4_pt_step3", "bjet4_pt_step3", 100, 20, 150);
   TH1F *h_bjet4_eta_step3 = new TH1F("h_bjet4_eta_step3", "bjet4_eta_step3", 100, -6, 6);
-  TH1F *h_bjet4_phi_step3 = new TH1F("h_bjet4_phi_step3", "bjet4_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_bjet4_phi_step3 = new TH1F("h_bjet4_phi_step3", "bjet4_phi_step3", 100, -5,5);
   TH1F *h_bjet4_m_step3 = new TH1F("h_bjet4_m_step3", "bjet4_m_step3", 100, 0, 40);
 
   TH1F *h_jetoutg1_pt_step3 = new TH1F("h_jetoutg1_pt_step3", "jetoutg1_pt_step3", 100, 20, 400);
   TH1F *h_jetoutg1_eta_step3 = new TH1F("h_jetoutg1_eta_step3", "jetoutg1_eta_step3", 100, -6, 6);
-  TH1F *h_jetoutg1_phi_step3 = new TH1F("h_jetoutg1_phi_step3", "jetoutg1_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jetoutg1_phi_step3 = new TH1F("h_jetoutg1_phi_step3", "jetoutg1_phi_step3", 100, -5,5);
   TH1F *h_jetoutg1_m_step3 = new TH1F("h_jetoutg1_m_step3", "jetoutg1_m_step3", 100, 0, 60);
 
   TH1F *h_jetoutg2_pt_step3 = new TH1F("h_jetoutg2_pt_step3", "jetoutg2_pt_step3", 100, 20, 200);
   TH1F *h_jetoutg2_eta_step3 = new TH1F("h_jetoutg2_eta_step3", "jetoutg2_eta_step3", 100, -6, 6);
-  TH1F *h_jetoutg2_phi_step3 = new TH1F("h_jetoutg2_phi_step3", "jetoutg2_phi_step3", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_jetoutg2_phi_step3 = new TH1F("h_jetoutg2_phi_step3", "jetoutg2_phi_step3", 100, -5,5);
   TH1F *h_jetoutg2_m_step3 = new TH1F("h_jetoutg2_m_step3", "jetoutg2_m_step3", 100, 0, 50);
 
   TH1F *h_dR_jet_en_before = new TH1F("h_dR_jet_en_before", "dR_jet_en_before", 100, 0, 8);
@@ -146,19 +146,19 @@ void MyClass::Loop()
 
   TH1F *h_en1_pt = new TH1F("h_en1_pt", "en1_pt", 100, 0, 500);
   TH1F *h_en1_eta = new TH1F("h_en1_eta", "en1_eta", 100, -6, 6);
-  TH1F *h_en1_phi = new TH1F("h_en1_phi", "en1_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_en1_phi = new TH1F("h_en1_phi", "en1_phi", 100, -5,5);
   
   TH1F *h_en2_pt = new TH1F("h_en2_pt", "en2_pt", 100, 0, 500);
   TH1F *h_en2_eta = new TH1F("h_en2_eta", "en2_eta", 100, -6, 6);
-  TH1F *h_en2_phi = new TH1F("h_en2_phi", "en2_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_en2_phi = new TH1F("h_en2_phi", "en2_phi", 100, -5,5);
   
   TH1F *h_mn1_pt = new TH1F("h_mn1_pt", "mn1_pt", 100, 0, 500);
   TH1F *h_mn1_eta = new TH1F("h_mn1_eta", "mn1_eta", 100, -6, 6);
-  TH1F *h_mn1_phi = new TH1F("h_mn1_phi", "muon1 phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_mn1_phi = new TH1F("h_mn1_phi", "muon1 phi", 100, -5,5);
   
   TH1F *h_mn2_pt = new TH1F("h_mn2_pt", "mn2_pt", 100, 0, 500);
   TH1F *h_mn2_eta = new TH1F("h_mn2_eta", "mn2_eta", 100, -6, 6);
-  TH1F *h_mn2_phi = new TH1F("h_mn2_phi", "muon2 phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *h_mn2_phi = new TH1F("h_mn2_phi", "muon2 phi", 100, -5,5);
   
   TH1F *h_en_mult_after = new TH1F("en_mult_after", "electrons", 5, 0, 5);
   TH1F *h_mn_mult_after = new TH1F("mn_mult_after", "muons", 5, 0, 5);
@@ -168,67 +168,67 @@ void MyClass::Loop()
 
   TH1F *higg_pt = new TH1F("higg_pt", "h_pt", 100, 0, 450);
   TH1F *higg_eta = new TH1F("higg_eta", "h_eta", 100, -8, 8);
-  TH1F *higg_phi = new TH1F("higg_phi", "h_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *higg_phi = new TH1F("higg_phi", "h_phi", 100, -5,5);
   TH1F *higg_m = new TH1F("higg_m", "h_m", 100, 124.6, 125.4);
 
   TH1F *z_pt = new TH1F("zb_pt", "zbo_pt", 100, 0, 300);
   TH1F *z_eta = new TH1F("zb_eta", "zbo_eta", 100, -10, 10);
-  TH1F *z_phi = new TH1F("zb_phi", "zbo_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *z_phi = new TH1F("zb_phi", "zbo_phi", 100, -5,5);
   TH1F *z_m = new TH1F("zb_m", "zbo_m", 100, 70, 110);
   
   TH1F *a_pt = new TH1F("ab_pt", "a_pt", 100, 0, 300);
   TH1F *a_eta = new TH1F("ab_eta", "a_eta", 100, -8, 8);
-  TH1F *a_phi = new TH1F("ab_phi", "a_phi", 100, -TMath::Pi(), TMath::Pi()); 
+  TH1F *a_phi = new TH1F("ab_phi", "a_phi", 100, -5,5); 
   TH1F *a_m = new TH1F("ab_m", "a_m", 100, 10, 70); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
 
-  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 300); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
   TH1F *a1_eta = new TH1F("ab1_eta", "a1_eta", 100, -8, 8);
-  TH1F *a1_phi = new TH1F("ab1_phi", "a1_phi", 100, -TMath::Pi(), TMath::Pi());
-  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 19.995, 20.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
-  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 300); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_phi = new TH1F("ab1_phi", "a1_phi", 100, -5,5);
+  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
   TH1F *a2_eta = new TH1F("ab2_eta", "a2_eta", 100, -8, 8);
-  TH1F *a2_phi = new TH1F("ab2_phi", "a2_phi", 100, -TMath::Pi(), TMath::Pi());
-  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 19.995, 20.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a2_phi = new TH1F("ab2_phi", "a2_phi", 100, -5,5);
+  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
   TH1F *dRa12 = new TH1F("dRa12", "dRa12", 100, 0, 7);
   
   TH1F *gq_pt = new TH1F("gq_pt", "gq_pt", 100, 0, 300);
   TH1F *gq_eta = new TH1F("gq_eta", "gq_eta", 100, -10, 10);
-  TH1F *gq_phi = new TH1F("gq_phi", "gq_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *gq_phi = new TH1F("gq_phi", "gq_phi", 100, -5,5);
   TH1F *gq_m = new TH1F("gq_m", "gq_m", 100, -1, 5);
 
   TH1F *outg1_pt = new TH1F("outg1_pt", "outgo1_pt", 100, 20, 400);
   TH1F *outg1_eta = new TH1F("outg1_eta", "outgo1_eta", 100, -6, 6);
-  TH1F *outg1_phi = new TH1F("outg1_phi", "outgo1_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *outg1_phi = new TH1F("outg1_phi", "outgo1_phi", 100, -5,5);
   TH1F *outg1_m = new TH1F("outg1_m", "outgo1_m", 100, -2, 2);
   TH1F *outg1_v2_m = new TH1F("outg1_v2_m", "outgo1_v2_m", 100, 0, 2);
 
   TH1F *outg2_pt = new TH1F("outg2_pt", "outgo2_pt", 100, 20, 400);
   TH1F *outg2_eta = new TH1F("outg2_eta", "outgo2_eta", 100, -6, 6);
-  TH1F *outg2_phi = new TH1F("outg2_phi", "outgo2_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *outg2_phi = new TH1F("outg2_phi", "outgo2_phi", 100, -5,5);
   TH1F *outg2_m = new TH1F("outg2_m", "outgo2_m", 100, -2, 2);
   TH1F *outg2_v2_m = new TH1F("outg2_v2_m", "outgo2_v2_m", 100, 0, 2);
 
   TH1F *prod1_pt = new TH1F("q1_pt", "q1_pt", 100, 0, 200);
   TH1F *prod1_eta = new TH1F("q1_eta", "q1_eta", 100, -6, 6);
-  TH1F *prod1_phi = new TH1F("q1_phi", "q1_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *prod1_phi = new TH1F("q1_phi", "q1_phi", 100, -5,5);
   TH1F *prod1_m = new TH1F("q1_m", "q1_m", 100, 4.2138, 4.2142);
 
   TH1F *prod2_pt = new TH1F("q2_pt", "q2_pt", 100, 0, 200);
   TH1F *prod2_eta = new TH1F("q2_eta", "q2_eta", 100, -6, 6);
-  TH1F *prod2_phi = new TH1F("q2_phi", "q2_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *prod2_phi = new TH1F("q2_phi", "q2_phi", 100, -5,5);
   TH1F *prod2_m = new TH1F("q2_m", "q2_m", 100, 4.2138, 4.2142);
 
   TH1F *prod3_pt = new TH1F("q3_pt", "q3_pt", 100, 0, 200);
   TH1F *prod3_eta = new TH1F("q3_eta", "q3_eta", 100, -6, 6);
-  TH1F *prod3_phi = new TH1F("q3_phi", "q3_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *prod3_phi = new TH1F("q3_phi", "q3_phi", 100, -5,5);
   TH1F *prod3_m = new TH1F("q3_m", "q3_m", 100, 4.2138, 4.2142);
 
   TH1F *prod4_pt = new TH1F("q4_pt", "q4_pt", 100, 0, 200);
   TH1F *prod4_eta = new TH1F("q4_eta", "q4_eta", 100, -6, 6);
-  TH1F *prod4_phi = new TH1F("q4_phi", "q4_phi", 100, -TMath::Pi(), TMath::Pi());
+  TH1F *prod4_phi = new TH1F("q4_phi", "q4_phi", 100, -5,5);
   TH1F *prod4_m = new TH1F("q4_m", "q4_m", 100, 4.2138, 4.2142);
   
-  TH1F *h_invmass_bbbar12 = new TH1F("invmass_bbbar12", "invmass_bbbar12 ", 100, 19.99, 20.01); //  20gev 19.99, 20.01 60gev 59.99 60.01
+  TH1F *h_invmass_bbbar12 = new TH1F("invmass_bbbar12", "invmass_bbbar12 ", 100, 59.99, 60.01); //  20gev 19.99, 20.01 60gev 59.99 60.01
   TH1F *h_invmass_aboson = new TH1F("h_invmass_aboson", "h_invmass_aboson", 100, 124, 126);
 
   TH1F *h_dR_outg_step3 = new TH1F("h_dR_outg_step3", "h_dR_outg_step3", 80, 0, 10);
@@ -920,7 +920,7 @@ void MyClass::Loop()
 
       
       h_met_pt->Fill(met_pt);
-      cout << hasMETtrigger1 << " " << hasMETtrigger2 << endl;
+      //cout << hasMETtrigger1 << " " << hasMETtrigger2 << endl;
       if (hasMETtrigger1||hasMETtrigger2)
 	{
 	  h_met_trig_pt->Fill(met_pt); //MET after Trigger requirement
@@ -953,7 +953,7 @@ void MyClass::Loop()
 
   
   //TString output_filename="histos_m20.root";
-  TFile *f = new TFile("myanalysis_20.root", "RECREATE");
+  TFile *f = new TFile("myanalysis_60.root", "RECREATE");
 
   
   jet_pt_tot->Write();
