@@ -28,8 +28,6 @@ void MyClass::Loop()
 
   bool verbose(false);
   bool masscal(false);
-  bool hasMETtrigger1=(triggerType>>11)&0x1;
-  bool hasMETtrigger2=(triggerType>>12)&0x1;
 
   
   Int_t nentries = Int_t(fChain->GetEntries());
@@ -181,14 +179,14 @@ void MyClass::Loop()
   TH1F *a_phi = new TH1F("ab_phi", "a_phi", 100, -5,5); 
   TH1F *a_m = new TH1F("ab_m", "a_m", 100, 10, 70); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
 
-  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 300); // 20GEV 0, 300 - 60GEV 0, 200
   TH1F *a1_eta = new TH1F("ab1_eta", "a1_eta", 100, -8, 8);
   TH1F *a1_phi = new TH1F("ab1_phi", "a1_phi", 100, -5,5);
-  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
-  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 19.995, 20.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 300); // 20GEV 0, 300 - 60GEV 0, 200
   TH1F *a2_eta = new TH1F("ab2_eta", "a2_eta", 100, -8, 8);
   TH1F *a2_phi = new TH1F("ab2_phi", "a2_phi", 100, -5,5);
-  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 19.995, 20.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
   TH1F *dRa12 = new TH1F("dRa12", "dRa12", 100, 0, 7);
   
   TH1F *gq_pt = new TH1F("gq_pt", "gq_pt", 100, 0, 300);
@@ -228,7 +226,7 @@ void MyClass::Loop()
   TH1F *prod4_phi = new TH1F("q4_phi", "q4_phi", 100, -5,5);
   TH1F *prod4_m = new TH1F("q4_m", "q4_m", 100, 4.2138, 4.2142);
   
-  TH1F *h_invmass_bbbar12 = new TH1F("invmass_bbbar12", "invmass_bbbar12 ", 100, 59.99, 60.01); //  20gev 19.99, 20.01 60gev 59.99 60.01
+  TH1F *h_invmass_bbbar12 = new TH1F("invmass_bbbar12", "invmass_bbbar12 ", 100, 19.99, 20.01); //  20gev 19.99, 20.01 60gev 59.99 60.01
   TH1F *h_invmass_aboson = new TH1F("h_invmass_aboson", "h_invmass_aboson", 100, 124, 126);
 
   TH1F *h_dR_outg_step3 = new TH1F("h_dR_outg_step3", "h_dR_outg_step3", 80, 0, 10);
@@ -566,6 +564,17 @@ void MyClass::Loop()
       
       float dR_aboson = getDeltaR(a1, a2); // dR between the A-bosons
       dRa12->Fill(dR_aboson);
+
+
+      bool hasMETtrigger1=(triggerType>>11)&0x1;
+      bool hasMETtrigger2=(triggerType>>12)&0x1;
+
+      h_met_pt->Fill(met_pt);
+      cout << hasMETtrigger1 << " " << hasMETtrigger2 << endl;
+      if (hasMETtrigger1||hasMETtrigger2)
+	{
+	  h_met_trig_pt->Fill(met_pt); //MET after Trigger requirement
+	}
 
       
       vector<TLorentzVector> vec_muons;
@@ -917,15 +926,6 @@ void MyClass::Loop()
       h_deta_outg_step4->Fill(deta_outg_step3); // deta between outgoings quarks at step 4
       h_dR_outg_step4->Fill(dRoutg_step3); // dR between outgoings at step 4
 
-
-      
-      h_met_pt->Fill(met_pt);
-      //cout << hasMETtrigger1 << " " << hasMETtrigger2 << endl;
-      if (hasMETtrigger1||hasMETtrigger2)
-	{
-	  h_met_trig_pt->Fill(met_pt); //MET after Trigger requirement
-	}
-
       
       
     } // end event jentry loop
@@ -953,7 +953,7 @@ void MyClass::Loop()
 
   
   //TString output_filename="histos_m20.root";
-  TFile *f = new TFile("myanalysis_60.root", "RECREATE");
+  TFile *f = new TFile("myanalysis_20.root", "RECREATE");
 
   
   jet_pt_tot->Write();
