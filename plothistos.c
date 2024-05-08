@@ -2,6 +2,7 @@ void plothistos()
 {
   TFile *f = new TFile("myanalysis_60.root", "READ");
   TFile *f1 = new TFile("myanalysis_20.root", "READ");
+  TFile *f2 = new TFile("myanalysis_trig.root", "READ");
   
   TH1F *jet_mult_60 = (TH1F*)f->Get("jet_mult");
   TH1F *jet_mult_20 = (TH1F*)f1->Get("jet_mult");
@@ -236,17 +237,14 @@ void plothistos()
   TH1F *jetbtag1_step4_60 = (TH1F*)f->Get("jetbtag1_step4");
   TH1F *jetbtag1_step4_20 = (TH1F*)f1->Get("jetbtag1_step4");
 
-  TH1F *h_met_pt_60 = (TH1F*)f->Get("h_met_pt");
-  TH1F *h_met_trig_pt_60 = (TH1F*)f->Get("h_met_trig_pt");
-  TH1F *h_met_pt_20 = (TH1F*)f1->Get("h_met_pt");
-  TH1F *h_met_trig_pt_20 = (TH1F*)f1->Get("h_met_trig_pt");
-
+  TH1F *h_met_pt_60 = (TH1F*)f2->Get("h_met_pt");
+  TH1F *h_met_trig_pt_60 = (TH1F*)f2->Get("h_met_trig_pt");
 
   
   bool gev60(false);
   bool gev20(false);
   bool cuts(false);
-  bool after(true);
+  bool trig(true);
 
   
   if (gev60)
@@ -1519,16 +1517,14 @@ void plothistos()
     }
 
 
-  if (after)
+  if (trig)
     {
       	h_met_trig_pt_60->Rebin(4);
 	h_met_pt_60->Rebin(4);
-	h_met_trig_pt_20->Rebin(4);
-	h_met_pt_20->Rebin(4);
 
 
-        TCanvas *c37 = new TCanvas ("c37","c37",800,800);
-	c37->Divide(2,2);
+        TCanvas *c37 = new TCanvas ("c37","c37",800,400);
+	c37->Divide(2,1);
 
 	c37->cd(1);
 	h_met_pt_60->Draw();
@@ -1536,21 +1532,13 @@ void plothistos()
 	c37->cd(2);
 	h_met_trig_pt_60->Draw();
 	
-	c37->cd(3);
-	h_met_pt_20->Draw();
 
-	c37->cd(4);
-	h_met_trig_pt_20->Draw();
-
-
-	c37->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_20-60.pdf");
+	c37->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_60.pdf");
 
 
 
-	TCanvas *c38 = new TCanvas ("c38","c38",800,400);
-	c38->Divide(2,1);
+	TCanvas *c38 = new TCanvas ("c38","c38",400,400);
 
-	c38->cd(1);
 	gPad->SetGridx();
 	gPad->SetGridy();
 	TGraphAsymmErrors *Eff1 = new TGraphAsymmErrors();
@@ -1562,19 +1550,7 @@ void plothistos()
 	Eff1->SetMarkerStyle(kFullCircle);
 	Eff1->Draw("AP");
 
-	c38->cd(2);
-	gPad->SetGridx();
-	gPad->SetGridy();
-	TGraphAsymmErrors *Eff2 = new TGraphAsymmErrors();
-	Eff2->BayesDivide(h_met_trig_pt_20,h_met_pt_20);
-	Eff2->GetXaxis()->SetTitle("MET (GeV)");
-	Eff2->GetYaxis()->SetRangeUser(0,1.2);
-	Eff2->GetYaxis()->SetTitle(" Efficiency ");
-	Eff2->SetTitle("trigger efficiency");
-	Eff2->SetMarkerStyle(kFullCircle);
-	Eff2->Draw("AP");
-
-	c38->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_error_20-60.pdf");
+	c38->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_error_60.pdf");
     }
 	
 

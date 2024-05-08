@@ -12,8 +12,9 @@
 #include <TChain.h>
 #include <TFile.h>
 
-bool analysis20(true);
+bool analysis20(false);
 bool analysis60(false);
+bool trig(true);
 
 
 // Header file for the classes stored in the TTree if any.
@@ -408,6 +409,19 @@ MyClass::MyClass(TTree *tree) : fChain(0)
 	  f = new TFile("analysis_total60gev.root");
 	}
 	TDirectory * dir = (TDirectory*)f->Get("analysis_total60gev.root:/mainNtuplizer");
+	dir->GetObject("data",tree);
+
+      }
+      Init(tree);
+    }
+  if (trig)
+    {
+      if (tree == 0) {
+	TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("analysis_trig.root");
+	if (!f || !f->IsOpen()) {
+	  f = new TFile("analysis_trig.root");
+	}
+	TDirectory * dir = (TDirectory*)f->Get("analysis_trig.root:/mainNtuplizer");
 	dir->GetObject("data",tree);
 
       }
