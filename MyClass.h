@@ -13,8 +13,10 @@
 #include <TFile.h>
 
 bool analysis20(false);
-bool analysis60(false);
-bool trig(true);
+bool analysis40(false);
+bool analysis50(false);
+bool analysis60(true);
+bool trig(false);
 
 
 // Header file for the classes stored in the TTree if any.
@@ -401,6 +403,33 @@ MyClass::MyClass(TTree *tree) : fChain(0)
       }
       Init(tree);
     }
+  if (analysis40)
+    {
+      if (tree == 0) {
+	TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("analysis_total40gev.root");
+	if (!f || !f->IsOpen()) {
+	  f = new TFile("analysis_total40gev.root");
+	}
+	TDirectory * dir = (TDirectory*)f->Get("analysis_total40gev.root:/mainNtuplizer");
+	dir->GetObject("data",tree);
+
+      }
+      Init(tree);
+    }
+  if (analysis50)
+    {
+      if (tree == 0) {
+	TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("analysis_total50gev.root");
+	if (!f || !f->IsOpen()) {
+	  f = new TFile("analysis_total50gev.root");
+	}
+	TDirectory * dir = (TDirectory*)f->Get("analysis_total50gev.root:/mainNtuplizer");
+	dir->GetObject("data",tree);
+
+      }
+      Init(tree);
+    }
+
   if (analysis60)
     {
       if (tree == 0) {

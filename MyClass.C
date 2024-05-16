@@ -5,6 +5,7 @@
 #include <TH2.h>
 #include <TStyle.h>
 #include <TCanvas.h>
+#include <cmath>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -177,16 +178,16 @@ void MyClass::Loop()
   TH1F *a_pt = new TH1F("ab_pt", "a_pt", 100, 0, 300);
   TH1F *a_eta = new TH1F("ab_eta", "a_eta", 100, -8, 8);
   TH1F *a_phi = new TH1F("ab_phi", "a_phi", 100, -5,5); 
-  TH1F *a_m = new TH1F("ab_m", "a_m", 100, 10, 70); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a_m = new TH1F("ab_m", "a_m", 100, 10, 70);
 
-  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 300); 
   TH1F *a1_eta = new TH1F("ab1_eta", "a1_eta", 100, -8, 8);
   TH1F *a1_phi = new TH1F("ab1_phi", "a1_phi", 100, -5,5);
-  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
-  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 200); // 20GEV 0, 300 - 60GEV 0, 200
+  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 40GEV 39.995, 40.005, 50GEV 49.995, 50.005 - 60GEV AND TRIG 59.995, 60.005
+  TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 300); 
   TH1F *a2_eta = new TH1F("ab2_eta", "a2_eta", 100, -8, 8);
   TH1F *a2_phi = new TH1F("ab2_phi", "a2_phi", 100, -5,5);
-  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 60GEV 59.995, 60.005
+  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 59.995, 60.005); // 20GEV 19.995, 20.005 - 40GEV 39.995, 40.005, 50GEV 49.995, 50.005 - 60GEV AND TRIG 59.995, 60.005
   TH1F *dRa12 = new TH1F("dRa12", "dRa12", 100, 0, 7);
   
   TH1F *gq_pt = new TH1F("gq_pt", "gq_pt", 100, 0, 300);
@@ -226,7 +227,7 @@ void MyClass::Loop()
   TH1F *prod4_phi = new TH1F("q4_phi", "q4_phi", 100, -5,5);
   TH1F *prod4_m = new TH1F("q4_m", "q4_m", 100, 4.2138, 4.2142);
   
-  TH1F *h_invmass_bbbar12 = new TH1F("invmass_bbbar12", "invmass_bbbar12 ", 100, 59.99, 60.01); //  20gev 19.99, 20.01 60gev 59.99 60.01
+  TH1F *h_invmass_bbbar12 = new TH1F("h_invmass_bbbar12", "h_invmass_bbbar12 ", 100, 59.99, 60.01); // 20GEV 19.995, 20.005 - 40GEV 39.995, 40.005, 50GEV 49.995, 50.005 - 60GEV AND TRIG 59.995, 60.005
   TH1F *h_invmass_aboson = new TH1F("h_invmass_aboson", "h_invmass_aboson", 100, 124, 126);
 
   TH1F *h_dR_outg_step3 = new TH1F("h_dR_outg_step3", "h_dR_outg_step3", 80, 0, 10);
@@ -243,8 +244,16 @@ void MyClass::Loop()
   TH1F *jetbtag1_step4 = new TH1F("jetbtag1_step4", "jetbtag1_step4", 100, 0, 1);
   TH1F *h_ht_step4 = new TH1F("h_ht_step4", "h_ht_step4", 100, 0, 1200);
 
-  TH1F *h_met_pt = new TH1F("h_met_pt", "h_met_pt", 100, 0, 400);
-  TH1F *h_met_trig_pt = new TH1F("h_met_trig_pt", "h_met_trig_pt", 100, 0, 400);
+  TH1F *h_met_pt = new TH1F("h_met_pt", "h_met_pt", 25, 0, 400);
+  TH1F *h_met_trig_pt = new TH1F("h_met_trig_pt", "h_met_trig_pt", 25, 0, 400);
+  TH1F *h_ptt = new TH1F("h_ptt", "h_ptt", 100, 0, 1200);
+
+  TH1F *invmyc = new TH1F("invmyc", "invmyc", 100, 0, 250);
+  TH1F *invmycth = new TH1F("invmycth", "invmycth", 100, 0, 250);
+  
+  TH1F *trigeff = new TH1F("trigeff", "trigeff", 25, 0, 400); // ONLY FOR TRIG
+  TH1F *trigeff_bion = new TH1F("trigeff_bion", "trigeff_bion", 25, 0, 400); // ONLY FOR TRIG
+  TH1F *trigeff_er = new TH1F("trigeff_er", "trigeff_er", 25, 0, 400); // ONLY FOR TRIG
 
 
   
@@ -273,7 +282,7 @@ void MyClass::Loop()
     {
       GetEntry(jentry);
 
-
+      
       if (verbose)
 	{
 	  cout << endl;
@@ -300,7 +309,7 @@ void MyClass::Loop()
 
       
 
-  // -------------------------------------------------------------Loop over particles------------------------------------------------------------
+      // -------------------------------------------------------------Loop over particles------------------------------------------------------------
 
       
       
@@ -309,10 +318,10 @@ void MyClass::Loop()
 
 	  
 	  if (verbose) // IT'S A PRINTOUT IF VERBOSE IS TRUE
-	    {
+	    {     
 	      if(jentry < 3) 
-		{
-		  cout << " imcparticle " << imc << ": is a " << mc_id[imc] << ", has a mother at: " << mc_momidx[imc] <<  "("<<mc_mom[imc] << ")" <<", status "<<mc_status[imc] << " and a 4-vector momentum p = (" << mc_en[imc] << ", " << mc_px[imc] << ", " << mc_py[imc] << ", " << mc_pz[imc] << " ) " << endl;
+		{ 
+		  cout << " imcparticle " << imc << ": is a " << mc_id[imc] << ", has a mother at: " << mc_momidx[imc] <<  "("<<mc_mom[imc] << ")" <<", status "<<mc_status[imc] << " and a 4-vector momentum p = (" << mc_en[imc] << ", " << mc_px[imc] << ", " << mc_py[imc] << ", " << mc_pz[imc] << " ) " << endl;		  
 		}
 	    } // END OF PRINTOUT
 
@@ -424,7 +433,6 @@ void MyClass::Loop()
 		  float etaoutg1 = outg1.Eta();
 		  float phioutg1 = outg1.Phi();
 		  float moutg1 = outg1.M();
-		  //float moutg1 = mc_en[imc] * mc_en[imc] - (mc_px[imc] * mc_px[imc] + mc_py[imc] * mc_py[imc] + mc_pz[imc] * mc_pz[imc]);
 		  double_t moutg1_v2 = sqrt(mc_en[imc] * mc_en[imc] - (mc_px[imc] * mc_px[imc] + mc_py[imc] * mc_py[imc] + mc_pz[imc] * mc_pz[imc])); // M^2 = E^2 - Px^2 - Py^2 - Pz^2
 		  double_t moutg1_v22 = - (mc_px[imc] * mc_px[imc] + mc_py[imc] * mc_py[imc] + mc_pz[imc] * mc_pz[imc]); // M^2 = E^2 - Px^2 - Py^2 - Pz^2
 
@@ -452,7 +460,6 @@ void MyClass::Loop()
 		  float etaoutg2 = outg2.Eta();
 		  float phioutg2 = outg2.Phi();
 		  float moutg2 = outg2.M();
-		  //float moutg2 = mc_en[imc] * mc_en[imc] - (mc_px[imc] * mc_px[imc] + mc_py[imc] * mc_py[imc] + mc_pz[imc] * mc_pz[imc]);
 		  float moutg2_v2 = sqrt(mc_en[imc] * mc_en[imc] - (mc_px[imc] * mc_px[imc] + mc_py[imc] * mc_py[imc] + mc_pz[imc] * mc_pz[imc])); // M^2 = E^2 - Px^2 - Py^2 - Pz^2
 		  outg2_pt->Fill(ptoutg2); 
 		  outg2_eta->Fill(etaoutg2);
@@ -538,9 +545,9 @@ void MyClass::Loop()
 	} // end imc particle loop
 
 
-      float invmass_aboson = sqrt((vec_gena1[0].E() + vec_gena2[0].E()) * (vec_gena1[0].E() + vec_gena2[0].E()) - (vec_gena1[0].Px() + vec_gena2[0].Px()) * (vec_gena1[0].Px() + vec_gena2[0].Px()) - (vec_gena1[0].Py() + vec_gena2[0].Py()) * (vec_gena1[0].Py() + vec_gena2[0].Py()) - (vec_gena1[0].Pz() + vec_gena2[0].Pz()) * (vec_gena1[0].Pz() + vec_gena2[0].Pz()));
-      h_invmass_aboson->Fill(invmass_aboson); // invariant mass of A-bosons
 
+      // ------------------------------------------------------------- outgoing --------------------------------------------------------------------
+    
       
       float invmass_outg = sqrt((mc_en[3] + mc_en[4]) * (mc_en[3] + mc_en[4]) - (mc_px[3] + mc_px[4]) * (mc_px[3] + mc_px[4]) - (mc_py[3] + mc_py[4]) * (mc_py[3] + mc_py[4]) - (mc_pz[3] + mc_pz[4]) * (mc_pz[3] + mc_pz[4]));
       h_invmass_outg->Fill(invmass_outg); // invariant mass of outgoing quakrs
@@ -552,18 +559,34 @@ void MyClass::Loop()
       
       float dR_outg = getDeltaR(outg1, outg2); 
       h_dR_outg->Fill(dR_outg); // dR between outgoings quakrs
+      
+          
+      float dR_bbbar1 = getDeltaR(prod1, prod2); 
+      h_dR_bbbar12->Fill(dR_bbbar1); // dR between the first bbbar pair
 
       
-      float dR_bbar1 = getDeltaR(prod1, prod2); 
-      h_dR_bbbar12->Fill(dR_bbar1); // dR between the first bbbar pair
+      float dR_bbbar2 = getDeltaR(prod3, prod4);
+      h_dR_bbbar34->Fill(dR_bbbar2); // dR between the second bbbar pair    
 
-      
-      float dR_bbar2 = getDeltaR(prod3, prod4);
-      h_dR_bbbar34->Fill(dR_bbar2); // dR between the second bbbar pair
+     
+      float invmass_aboson = sqrt((vec_gena1[0].E() + vec_gena2[0].E()) * (vec_gena1[0].E() + vec_gena2[0].E()) - (vec_gena1[0].Px() + vec_gena2[0].Px()) * (vec_gena1[0].Px() + vec_gena2[0].Px()) - (vec_gena1[0].Py() + vec_gena2[0].Py()) * (vec_gena1[0].Py() + vec_gena2[0].Py()) - (vec_gena1[0].Pz() + vec_gena2[0].Pz()) * (vec_gena1[0].Pz() + vec_gena2[0].Pz()));
+      h_invmass_aboson->Fill(invmass_aboson); // invariant mass of A-bosons
 
       
       float dR_aboson = getDeltaR(a1, a2); // dR between the A-bosons
-      dRa12->Fill(dR_aboson);
+      dRa12->Fill(dR_aboson);     
+
+      
+      float invm1 = sqrt(pow(vec_gena1[0].M(), 2) + pow(vec_gena2[0].M(), 2) + 2 * (vec_gena1[0].E() * vec_gena2[0].E() - sqrt(pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)) * sqrt(pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)) * cos(((vec_gena1[0].Px() * vec_gena2[0].Px() + vec_gena1[0].Py() * vec_gena2[0].Py() + vec_gena1[0].Pz() * vec_gena2[0].Pz()) / ((pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)) * (pow(vec_gena2[0].Px(), 2) + pow(vec_gena2[0].Py(), 2) + pow(vec_gena2[0].Pz(), 2)))))));
+      invmyc->Fill(invm1); // invariant mass of A-bosons p-calculated
+
+      
+      float invm2 = sqrt(pow(vec_gena1[0].M(), 2) + pow(vec_gena2[0].M(), 2) + 2 * (vec_gena1[0].E() * vec_gena2[0].E() - sqrt(pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)) * sqrt(pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)) * cos(2 * atan(exp(-vec_gena1[0].Eta())) - 2 * atan(exp(-vec_gena2[0].Eta())))));
+      invmycth->Fill(invm2); // invariant mass of A-bosons eta-calculated
+
+
+      // ---------------------------------------------------------------------------------------------------------------------------------------------
+
 
       
       vector<TLorentzVector> vec_muons;
@@ -575,7 +598,7 @@ void MyClass::Loop()
 
       
 
-  // ---------------------------------------------------------------Loop over muons--------------------------------------------------------------
+      // ---------------------------------------------------------------Loop over muons--------------------------------------------------------------
 
 
       
@@ -598,7 +621,7 @@ void MyClass::Loop()
 
       
 
-  // -------------------------------------------------------------Loop over electrons------------------------------------------------------------
+      // -------------------------------------------------------------Loop over electrons------------------------------------------------------------
       
 
       
@@ -620,7 +643,7 @@ void MyClass::Loop()
 
 
       
-  // ---------------------------------------------------------------Loop over jets--------------------------------------------------------------
+      // ---------------------------------------------------------------Loop over jets--------------------------------------------------------------
 
       
       
@@ -683,25 +706,37 @@ void MyClass::Loop()
 	  
 	} // end of jet loop
 
-
+ 
       
       h_en_mult->Fill(vec_ele.size());
       h_mn_mult->Fill(vec_muons.size());
       h_lepton_mult->Fill(vec_ele.size() + vec_muons.size());
       h_jet_mult->Fill(vec_jet.size());
 
+      
 
+      // ------------------------------------------------------------------------MET-----------------------------------------------------------------------
+
+      
       
       bool hasMETtrigger1=(triggerType>>11)&0x1;
       bool hasMETtrigger2=(triggerType>>12)&0x1;
 
       h_met_pt->Fill(met_pt);
-      //cout << hasMETtrigger1 << " " << hasMETtrigger2 << endl;
       if (hasMETtrigger1||hasMETtrigger2)
 	{
 	  h_met_trig_pt->Fill(met_pt); //MET after Trigger requirement
 	}
+      
+      float ptt = 0.0; 
+      for (int s = 0; s < vec_jet.size(); s++)
+	{
+	  ptt += vec_jet[s].Pt();
+	}
+      h_ptt->Fill(ptt);
 
+      
+      
       // ----------------------------------------------------------START EVENT SELECTION CRITERIA----------------------------------------------------------
       // -----------------------------------------------------------------Step 1: Nlep = 0-----------------------------------------------------------------
 
@@ -746,8 +781,8 @@ void MyClass::Loop()
 
       
       
-  //---------------------------------------------------------------------JET CUTS---------------------------------------------------------------------
-  // --------------------------------------------------------------Step 2: Jet size >= 5--------------------------------------------------------------
+      //---------------------------------------------------------------------JET CUTS---------------------------------------------------------------------
+      // --------------------------------------------------------------Step 2: Jet size >= 5--------------------------------------------------------------
 
       
 
@@ -789,7 +824,7 @@ void MyClass::Loop()
 
 
       
-  // -------------------------------------------------------Step 3: bJet size >= 3 outgJet >=2--------------------------------------------------------
+      // -------------------------------------------------------Step 3: bJet size >= 3 outgJet >=2--------------------------------------------------------
 
 
       
@@ -815,7 +850,7 @@ void MyClass::Loop()
       h_bjet3_phi_step3->Fill(vec_bjet[2].Phi());
       h_bjet3_m_step3->Fill(vec_bjet[2].M());
 
-       if (vec_bjet.size() > 3)
+      if (vec_bjet.size() > 3)
 	{
 	  h_bjet4_pt_step3->Fill(vec_bjet[3].Pt());
 	  h_bjet4_eta_step3->Fill(vec_bjet[3].Eta());
@@ -841,19 +876,17 @@ void MyClass::Loop()
       float invmass_outg_step3 = sqrt((vec_outg[0].E() + vec_outg[1].E()) * (vec_outg[0].E() + vec_outg[1].E()) - (vec_outg[0].Px() + vec_outg[1].Px()) * (vec_outg[0].Px() + vec_outg[1].Px()) - (vec_outg[0].Py() + vec_outg[1].Py()) * (vec_outg[0].Py() + vec_outg[1].Py()) - (vec_outg[0].Pz() + vec_outg[1].Pz()) * (vec_outg[0].Pz() + vec_outg[1].Pz()));
       h_invmass_outg_step3->Fill(invmass_outg_step3); // invariant mass outgoings at step 3
 
-
       
       float invmass_bjets_step3 = sqrt((vec_bjet[0].E() + vec_bjet[1].E() + vec_bjet[2].E() + vec_bjet[3].E()) * (vec_bjet[0].E() + vec_bjet[1].E() + vec_bjet[2].E() + vec_bjet[3].E()) - (vec_bjet[0].Px() + vec_bjet[1].Px() + vec_bjet[2].Px() + vec_bjet[3].Px()) * (vec_bjet[0].Px() + vec_bjet[1].Px() + vec_bjet[2].Px() + vec_bjet[3].Px()) - (vec_bjet[0].Py() + vec_bjet[1].Py() + vec_bjet[2].Py() + vec_bjet[3].Py()) * (vec_bjet[0].Py() + vec_bjet[1].Py() + vec_bjet[2].Py() + vec_bjet[3].Py()) - (vec_bjet[0].Pz() + vec_bjet[1].Pz() + vec_bjet[2].Pz() + vec_bjet[3].Pz()) * (vec_bjet[0].Pz() + vec_bjet[1].Pz() + vec_bjet[2].Pz() + vec_bjet[3].Pz()));
       h_invmass_bjets_step3->Fill(invmass_bjets_step3); // invariant mass bjets at step 3
-      
-      
+          
       
       float deta_outg_step3 = abs(vec_outg[0].Eta() - vec_outg[1].Eta()); 
       h_deta_outg_step3->Fill(deta_outg_step3); // deta between outgoings quarks at step 3
 
       
 
-  // -------------------------------------------------Step 4: M(jj) > 250, ΔR(jj) > 0.6, |Δη| > 2.5---------------------------------------------------
+      // -------------------------------------------------Step 4: M(jj) > 250, ΔR(jj) > 0.6, |Δη| > 2.5---------------------------------------------------
 
 
       
@@ -907,16 +940,16 @@ void MyClass::Loop()
 
       
       float sum_ht_step4 = 0.0; // ht = sum pt of all jets at step 4
-      for (int j = 0; j < jet; j++)
+      for (int j = 0; j < vec_jet.size(); j++)
 	{
 	  sum_ht_step4 += vec_jet[j].Pt();
 	}
+      h_ht_step4->Fill(sum_ht_step4);
       for (int l = 0; l < vec_outg.size(); l++)
 	{
 	  jetbtag0_step4->Fill(jet_btag0[l]);
 	  jetbtag1_step4->Fill(jet_btag1[l]);
 	}
-      h_ht_step4->Fill(sum_ht_step4);
 
 
     
@@ -926,11 +959,33 @@ void MyClass::Loop()
       h_dR_outg_step4->Fill(dRoutg_step3); // dR between outgoings at step 4
 
       
-      
+    
     } // end event jentry loop
 
 
   
+  for (int h = 1; h < 26; h++)
+    {
+      float v1 = h_met_pt->GetBinContent(h);
+      float v1er = h_met_pt->GetBinError(h);
+      float v2 = h_met_trig_pt->GetBinContent(h);
+      float v2er = h_met_trig_pt->GetBinError(h);
+      if (v1 != 0)
+  	{
+	  trigeff_bion->SetBinContent(h, v2 / v1);
+	  trigeff_bion->SetBinError(h, (1 / v1) * sqrt(v2 * (1 - v2/v1))); // bionimial error (1 / v1) * sqrt(v2 * (1 - v2/v1))
+  	  trigeff->SetBinContent(h, v2 / v1);
+  	  trigeff_er->SetBinContent(h, v2 / v1);
+  	  trigeff_er->SetBinError(h, sqrt((pow(v2er / v1, 2)) + pow(((v2 * v1er) / (v1 * v1)), 2))); // error propagation
+	  //cout << "error binomial: "<< (1 / v1) * sqrt(v2 * (1 - v2/v1)) << endl;
+	  //cout << "error poisson: "<< sqrt((pow(v2er / v1, 2)) + pow(((v2 * v1er) / (v1 * v1)), 2)) << endl;
+	  //cout << endl;
+  	}
+    }
+
+
+
+ 
   // ---------------------------------------------------------------EVENT FLOW TABLE------------------------------------------------------------------
 
   
@@ -950,9 +1005,8 @@ void MyClass::Loop()
   // -----------------------------------------------------------------SAVE RESULTS--------------------------------------------------------------------
 
 
-  
-  //TString output_filename="histos_m20.root";
-  TFile *f = new TFile("myanalysis_trig.root", "RECREATE");
+
+  TFile *f = new TFile("myanalysis_60.root", "RECREATE");
 
   
   jet_pt_tot->Write();
@@ -1158,9 +1212,16 @@ void MyClass::Loop()
 
   h_met_pt->Write();
   h_met_trig_pt->Write();
+  h_ptt->Write();
 
+  invmyc->Write();
+  invmycth->Write();
 
+  trigeff->Write();
+  trigeff_bion->Write();
+  trigeff_er->Write();
 
+  
   f->Close();
 
 

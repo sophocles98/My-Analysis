@@ -2,6 +2,8 @@ void plothistos()
 {
   TFile *f = new TFile("myanalysis_60.root", "READ");
   TFile *f1 = new TFile("myanalysis_20.root", "READ");
+  TFile *f3 = new TFile("myanalysis_40.root", "READ");
+  TFile *f4 = new TFile("myanalysis_50.root", "READ");
   TFile *f2 = new TFile("myanalysis_trig.root", "READ");
   
   TH1F *jet_mult_60 = (TH1F*)f->Get("jet_mult");
@@ -96,8 +98,33 @@ void plothistos()
   TH1F *ab_phi_20 = (TH1F*)f1->Get("ab_phi");
   TH1F *ab_m_20 = (TH1F*)f1->Get("ab_m");
 
+  TH1F *ab1_pt_60 = (TH1F*)f->Get("ab1_pt");
+  TH1F *ab1_eta_60 = (TH1F*)f->Get("ab1_eta");
+  TH1F *ab1_phi_60 = (TH1F*)f->Get("ab1_phi");
+  TH1F *ab1_m_60 = (TH1F*)f->Get("ab1_m");
+  TH1F *ab1_pt_20 = (TH1F*)f1->Get("ab1_pt");
+  TH1F *ab1_eta_20 = (TH1F*)f1->Get("ab1_eta");
+  TH1F *ab1_phi_20 = (TH1F*)f1->Get("ab1_phi");
+  TH1F *ab1_m_20 = (TH1F*)f1->Get("ab1_m");
+
+  TH1F *ab2_pt_60 = (TH1F*)f->Get("ab2_pt");
+  TH1F *ab2_eta_60 = (TH1F*)f->Get("ab2_eta");
+  TH1F *ab2_phi_60 = (TH1F*)f->Get("ab2_phi");
+  TH1F *ab2_m_60 = (TH1F*)f->Get("ab2_m");
+  TH1F *ab2_pt_20 = (TH1F*)f1->Get("ab2_pt");
+  TH1F *ab2_eta_20 = (TH1F*)f1->Get("ab2_eta");
+  TH1F *ab2_phi_20 = (TH1F*)f1->Get("ab2_phi");
+  TH1F *ab2_m_20 = (TH1F*)f1->Get("ab2_m");
+
+  TH1F *ab_eta_50 = (TH1F*)f4->Get("ab_eta");
+  TH1F *ab_eta_40 = (TH1F*)f3->Get("ab_eta");
+  TH1F *ab_pt_50 = (TH1F*)f4->Get("ab_pt");
+  TH1F *ab_pt_40 = (TH1F*)f3->Get("ab_pt");
+  
   TH1F *dRa12_60 = (TH1F*)f->Get("dRa12");
   TH1F *dRa12_20 = (TH1F*)f1->Get("dRa12");
+  TH1F *dRa12_40 = (TH1F*)f3->Get("dRa12");
+  TH1F *dRa12_50 = (TH1F*)f4->Get("dRa12");
 
   TH1F *gq_pt_60 = (TH1F*)f->Get("gq_pt");
   TH1F *gq_eta_60 = (TH1F*)f->Get("gq_eta");
@@ -110,7 +137,14 @@ void plothistos()
 
   TH1F *h_dR_bbbar12_60 = (TH1F*)f->Get("h_dR_bbbar12");
   TH1F *h_dR_bbbar12_20 = (TH1F*)f1->Get("h_dR_bbbar12");
-  
+  TH1F *h_dR_bbbar12_40 = (TH1F*)f3->Get("h_dR_bbbar12");
+  TH1F *h_dR_bbbar12_50 = (TH1F*)f4->Get("h_dR_bbbar12");
+
+  TH1F *h_invmass_bbbar12_60 = (TH1F*)f->Get("h_invmass_bbbar12");
+  TH1F *h_invmass_bbbar12_20 = (TH1F*)f1->Get("h_invmass_bbbar12");
+  TH1F *h_invmass_bbbar12_40 = (TH1F*)f3->Get("h_invmass_bbbar12");
+  TH1F *h_invmass_bbbar12_50 = (TH1F*)f4->Get("h_invmass_bbbar12");
+
   TH1F *h_dR_bbbar34_60 = (TH1F*)f->Get("h_dR_bbbar34");
   TH1F *h_dR_bbbar34_20 = (TH1F*)f1->Get("h_dR_bbbar34");
 
@@ -122,6 +156,13 @@ void plothistos()
   
   TH1F *h_invmass_outg_60 = (TH1F*)f->Get("h_invmass_outg");
   TH1F *h_invmass_outg_20 = (TH1F*)f1->Get("h_invmass_outg");
+
+  TH1F *h_invmass_aboson_60 = (TH1F*)f->Get("h_invmass_aboson");
+  TH1F *h_invmass_aboson_20 = (TH1F*)f1->Get("h_invmass_aboson");
+  TH1F *invmyc_60 = (TH1F*)f->Get("invmyc");
+  TH1F *invmyc_20 = (TH1F*)f1->Get("invmyc");
+  TH1F *invmycth_60 = (TH1F*)f->Get("invmycth");
+  TH1F *invmycth_20 = (TH1F*)f1->Get("invmycth");
 
   TH1F *bjet1_pt_step4_60 = (TH1F*)f->Get("h_bjet1_pt_step4");
   TH1F *bjet1_eta_step4_60 = (TH1F*)f->Get("h_bjet1_eta_step4");
@@ -237,14 +278,19 @@ void plothistos()
   TH1F *jetbtag1_step4_60 = (TH1F*)f->Get("jetbtag1_step4");
   TH1F *jetbtag1_step4_20 = (TH1F*)f1->Get("jetbtag1_step4");
 
-  TH1F *h_met_pt_60 = (TH1F*)f2->Get("h_met_pt");
-  TH1F *h_met_trig_pt_60 = (TH1F*)f2->Get("h_met_trig_pt");
+  TH1F *h_met_pt = (TH1F*)f2->Get("h_met_pt");
+  TH1F *h_met_trig_pt = (TH1F*)f2->Get("h_met_trig_pt");
+  TH1F *trigeff = (TH1F*)f2->Get("trigeff");
+  TH1F *trigeff_er = (TH1F*)f2->Get("trigeff_er");
+  TH1F *trigeff_bion = (TH1F*)f2->Get("trigeff_bion");
+
 
   
   bool gev60(false);
   bool gev20(false);
-  bool cuts(false);
-  bool trig(true);
+  bool cuts(true);
+  bool trig(false);
+  bool dra(false);
 
   
   if (gev60)
@@ -1031,6 +1077,101 @@ void plothistos()
       
       c26->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/bjets34_step3_pt_eta_phi_20-60.pdf");
 
+
+
+      TCanvas *c26a = new TCanvas("c26a", "canvas26a", 1600, 800);
+      c26a->Divide(4,2);
+
+      c26a->cd(1);
+      bjet1_pt_step3_60->Draw();
+      bjet1_pt_step3_20->Draw("sames");
+      bjet1_pt_step3_60->SetLineColor(kBlue);
+      bjet1_pt_step3_20->SetLineColor(kRed);
+      bjet1_pt_step3_60->GetXaxis()->SetTitle("P_{T} (GeV)");
+      TLegend *leg61a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg61a->AddEntry(bjet1_pt_step3_60, "mA=60 GeV", "L");
+      leg61a->AddEntry(bjet1_pt_step3_20, "mA=20 GeV", "L");
+      leg61a->Draw();
+
+      c26a->cd(2);
+      bjet2_pt_step3_60->Draw();
+      bjet2_pt_step3_20->Draw("sames");
+      bjet2_pt_step3_60->SetLineColor(kBlue);
+      bjet2_pt_step3_20->SetLineColor(kRed);
+      bjet2_pt_step3_60->GetXaxis()->SetTitle("P_{T} (GeV)");
+      TLegend *leg62a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg62a->AddEntry(bjet2_pt_step3_60, "mA=60 GeV", "L");
+      leg62a->AddEntry(bjet2_pt_step3_20, "mA=20 GeV", "L");
+      leg62a->Draw();
+
+      c26a->cd(3);
+      bjet3_pt_step3_60->Draw();
+      bjet3_pt_step3_20->Draw("sames");
+      bjet3_pt_step3_60->SetLineColor(kBlue);
+      bjet3_pt_step3_20->SetLineColor(kRed);
+      bjet3_pt_step3_60->GetXaxis()->SetTitle("P_{T} (GeV)");
+      TLegend *leg63a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg63a->AddEntry(bjet3_pt_step3_60, "mA=60 GeV", "L");
+      leg63a->AddEntry(bjet3_pt_step3_20, "mA=20 GeV", "L");
+      leg63a->Draw();
+
+      c26a->cd(4);
+      bjet4_pt_step3_60->Draw();
+      bjet4_pt_step3_20->Draw("sames");
+      bjet4_pt_step3_60->SetLineColor(kBlue);
+      bjet4_pt_step3_20->SetLineColor(kRed);
+      bjet4_pt_step3_60->GetXaxis()->SetTitle("P_{T} (GeV)");
+      TLegend *leg64a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg64a->AddEntry(bjet4_pt_step3_60, "mA=60 GeV", "L");
+      leg64a->AddEntry(bjet4_pt_step3_20, "mA=20 GeV", "L");
+      leg64a->Draw();
+
+      c26a->cd(5);
+      bjet1_eta_step3_60->Draw();
+      bjet1_eta_step3_20->Draw("sames");
+      bjet1_eta_step3_60->SetLineColor(kBlue);
+      bjet1_eta_step3_20->SetLineColor(kRed);
+      bjet1_eta_step3_60->GetXaxis()->SetTitle("#eta");
+      TLegend *leg65a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg65a->AddEntry(bjet1_eta_step3_60, "mA=60 GeV", "L");
+      leg65a->AddEntry(bjet1_eta_step3_20, "mA=20 GeV", "L");
+      leg65a->Draw();
+
+      c26a->cd(6);
+      bjet2_eta_step3_60->Draw();
+      bjet2_eta_step3_20->Draw("sames");
+      bjet2_eta_step3_60->SetLineColor(kBlue);
+      bjet2_eta_step3_20->SetLineColor(kRed);
+      bjet2_eta_step3_60->GetXaxis()->SetTitle("#eta");
+      TLegend *leg66a = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg66a->AddEntry(bjet2_eta_step3_60, "mA=60 GeV", "L");
+      leg66a->AddEntry(bjet2_eta_step3_20, "mA=20 GeV", "L");
+      leg66a->Draw();
+
+      c26a->cd(7);
+      bjet3_eta_step3_60->Draw();
+      bjet3_eta_step3_20->Draw("sames");
+      bjet3_eta_step3_60->SetLineColor(kBlue);
+      bjet3_eta_step3_20->SetLineColor(kRed);
+      bjet3_eta_step3_60->GetXaxis()->SetTitle("#eta");
+      TLegend *leg66b = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg66b->AddEntry(bjet3_eta_step3_60, "mA=60 GeV", "L");
+      leg66b->AddEntry(bjet3_eta_step3_20, "mA=20 GeV", "L");
+      leg66b->Draw();
+
+      c26a->cd(8);
+      bjet4_eta_step3_60->Draw();
+      bjet4_eta_step3_20->Draw("sames");
+      bjet4_eta_step3_60->SetLineColor(kBlue);
+      bjet4_eta_step3_20->SetLineColor(kRed);
+      bjet4_eta_step3_60->GetXaxis()->SetTitle("#eta");
+      TLegend *leg66c = new TLegend(0.59, 0.5, 0.89, 0.65);
+      leg66c->AddEntry(bjet4_eta_step3_60, "mA=60 GeV", "L");
+      leg66c->AddEntry(bjet4_eta_step3_20, "mA=20 GeV", "L");
+      leg66c->Draw();
+      
+      c26a->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/bjets1234_step3_pt_eta_20-60.pdf");
+
       
 
       TCanvas *c27 = new TCanvas("c27", "canvas27", 1200, 800);
@@ -1268,7 +1409,7 @@ void plothistos()
       TCanvas *c31 = new TCanvas("c31", "canvas31", 800, 400);
       c31->Divide(2,1);
 
-      c31->cd(1);
+      c31->cd(2);
       bjet_mult_step1_60->SetMaximum(20000);
       bjet_mult_step1_20->SetMaximum(20000);
       bjet_mult_step1_60->Draw();
@@ -1281,7 +1422,7 @@ void plothistos()
       leg85->AddEntry(bjet_mult_step1_20, "mA=20 GeV", "L");
       leg85->Draw();
 
-      c31->cd(2);
+      c31->cd(1);
       jet_mult_step1_60->SetMaximum(16000);
       jet_mult_step1_20->SetMaximum(16000);
       jet_mult_step1_60->Draw();
@@ -1423,7 +1564,7 @@ void plothistos()
       TCanvas *c36 = new TCanvas("c36", "canvas36", 800, 800);
       c36->Divide(2,2);
 
-      c36->cd(1);
+      c36->cd(3);
       q1_pt_60->SetStats(kFALSE);
       q2_pt_60->SetStats(kFALSE);
       outg1_pt_60->SetStats(kFALSE);
@@ -1446,7 +1587,7 @@ void plothistos()
       leg93->AddEntry(outg2_pt_60, "q_2", "L");
       leg93->Draw();
 
-      c36->cd(2);
+      c36->cd(4);
       q1_pt_20->SetStats(kFALSE);
       q2_pt_20->SetStats(kFALSE);
       outg1_pt_20->SetStats(kFALSE);
@@ -1469,7 +1610,7 @@ void plothistos()
       leg94->AddEntry(outg2_pt_20, "q_2", "L");
       leg94->Draw();
 
-      c36->cd(3);
+      c36->cd(1);
       q1_eta_60->SetStats(kFALSE);
       q2_eta_60->SetStats(kFALSE);
       outg1_eta_60->SetStats(kFALSE);
@@ -1491,7 +1632,7 @@ void plothistos()
       leg95->AddEntry(outg2_eta_60, "q_2", "L");
       leg95->Draw();
 
-      c36->cd(4);
+      c36->cd(2);
       q1_eta_20->SetStats(kFALSE);
       q2_eta_20->SetStats(kFALSE);
       outg1_eta_20->SetStats(kFALSE);
@@ -1519,21 +1660,22 @@ void plothistos()
 
   if (trig)
     {
-      	h_met_trig_pt_60->Rebin(4);
-	h_met_pt_60->Rebin(4);
+      //h_met_trig_pt->Rebin(4);
+      //h_met_pt->Rebin(4);
+      //trigeff_bion->Rebin(4);
 
 
         TCanvas *c37 = new TCanvas ("c37","c37",800,400);
 	c37->Divide(2,1);
 
 	c37->cd(1);
-	h_met_pt_60->Draw();
+	h_met_pt->Draw();
 
 	c37->cd(2);
-	h_met_trig_pt_60->Draw();
+	h_met_trig_pt->Draw();
 	
 
-	c37->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_60.pdf");
+	c37->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_trig.pdf");
 
 
 
@@ -1541,17 +1683,146 @@ void plothistos()
 
 	gPad->SetGridx();
 	gPad->SetGridy();
-	TGraphAsymmErrors *Eff1 = new TGraphAsymmErrors();
-	Eff1->BayesDivide(h_met_trig_pt_60,h_met_pt_60);
-	Eff1->GetXaxis()->SetTitle("MET (GeV)");
-	Eff1->GetYaxis()->SetRangeUser(0,1.2);
-	Eff1->GetYaxis()->SetTitle(" Efficiency ");
-	Eff1->SetTitle("trigger efficiency");
-	Eff1->SetMarkerStyle(kFullCircle);
-	Eff1->Draw("AP");
+	TGraphAsymmErrors *er = new TGraphAsymmErrors();
+	er->BayesDivide(h_met_trig_pt,h_met_pt);
+	er->GetXaxis()->SetTitle("MET (GeV)");
+	er->GetYaxis()->SetTitle(" Efficiency ");
+	er->SetTitle("trigger efficiency");
+	er->SetMarkerStyle(kFullCircle);
+	er->Draw("AP");
+	for (int i = 0; i < er->GetN(); ++i) {
+	  Double_t x, y;
+	  er->GetPoint(i, x, y);
+	  Double_t yerr_low = er->GetErrorYlow(i);
+	  Double_t yerr_high = er->GetErrorYhigh(i);
+	  TString errorText = Form("#sigma_{y}=%.8f", (yerr_low + yerr_high)/2);
+	  TLatex *text = new TLatex(x, y + 0.02, errorText.Data());
+	  text->SetTextAlign(22);
+	  text->SetTextSize(0.02);
+	  text->Draw("same");
+	}
 
-	c38->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_mettrig_error_60.pdf");
-    }
+	c38->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_trig_error.pdf");
+
+
+	
+	TCanvas *c38a = new TCanvas ("c38a","c38a",400,400);
+	gPad->SetGridx();
+	gPad->SetGridy();
+	trigeff_er->Draw("sames");
+	trigeff_er->GetXaxis()->SetTitle("MET (GeV)");
+	trigeff_er->GetYaxis()->SetTitle(" Efficiency ");
+	trigeff_er->SetTitle("trigger efficiency");
+
+	c38a->SaveAs("/Users/sophoclestsakiropoulos/Analysis/Plots/met_trig_error_myc.pdf");
+
+
+	TCanvas *c38b = new TCanvas ("c38b","c38b",400,400);
+	gPad->SetGridx();
+	gPad->SetGridy();
+	trigeff_bion->Draw("sames");
+	trigeff_bion->GetXaxis()->SetTitle("MET (GeV)");
+	trigeff_bion->GetYaxis()->SetTitle(" Efficiency ");
+	trigeff_bion->SetTitle("trigger efficiency");
 	
 
+    }
+
+  
+  if (dra)
+    {
+      
+      TCanvas *c39 = new TCanvas ("c39","c39",600,600);
+
+      h_invmass_aboson_60->Draw();
+      h_invmass_aboson_20->Draw("sames");
+      h_invmass_aboson_60->SetLineColor(kBlue);
+      h_invmass_aboson_20->SetLineColor(kRed);
+      TLegend *leg97 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg97->SetHeader("Invariant Mass");
+      leg97->AddEntry(h_invmass_aboson_60, "60 GeV", "L");
+      leg97->AddEntry(h_invmass_aboson_20, "20 GeV", "L");
+      leg97->Draw();
+
+
+      
+      TCanvas *c40 = new TCanvas ("c40","c40",600,600);
+
+      dRa12_60->Draw();
+      dRa12_20->Draw("sames");
+      dRa12_20->SetLineColor(kRed);
+      dRa12_60->SetLineColor(kBlue);
+      TLegend *leg98 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg98->SetHeader("Angular Distance");
+      leg98->AddEntry(dRa12_60, "60 GeV", "L");
+      leg98->AddEntry(dRa12_20, "20 GeV", "L");
+      leg98->Draw();
+
+      
+  
+      TCanvas *c41 = new TCanvas ("c41","c41",1500,500);
+      c41->Divide(3,1);
+
+      c41->cd(1);
+      ab1_pt_60->Draw();
+      ab1_pt_20->Draw("sames");
+      ab1_pt_20->SetLineColor(kRed);
+      ab1_pt_60->SetLineColor(kBlue);
+      TLegend *leg100 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg100->SetHeader("A1 P_{t}");
+      leg100->AddEntry(ab1_pt_60, "60 GeV", "L");
+      leg100->AddEntry(ab1_pt_20, "20 GeV", "L");
+      leg100->Draw();
+
+      c41->cd(2);
+      ab2_pt_60->Draw();
+      ab2_pt_20->Draw("sames");
+      ab2_pt_20->SetLineColor(kRed);
+      ab2_pt_60->SetLineColor(kBlue);
+      TLegend *leg101 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg101->SetHeader("A2 P_{t}");
+      leg101->AddEntry(ab2_pt_60, "60 GeV", "L");
+      leg101->AddEntry(ab2_pt_20, "20 GeV", "L");
+      leg101->Draw();
+
+      c41->cd(3);
+      ab_pt_60->Draw();
+      ab_pt_20->Draw("sames");
+      ab_pt_20->SetLineColor(kRed);
+      ab_pt_60->SetLineColor(kBlue);
+      TLegend *leg102 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg102->SetHeader("A P_{t}");
+      leg102->AddEntry(ab_pt_60, "60 GeV", "L");
+      leg102->AddEntry(ab_pt_20, "20 GeV", "L");
+      leg102->Draw();
+
+
+      
+      TCanvas *c42 = new TCanvas ("c42","c42",600,600); 
+      
+      invmyc_60->Draw();
+      invmyc_20->Draw("sames");
+      invmyc_60->SetLineColor(kBlue);
+      invmyc_20->SetLineColor(kRed);
+      TLegend *leg103 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg103->SetHeader("Invariant Mass");
+      leg103->AddEntry(invmyc_60, "60 GeV", "L");
+      leg103->AddEntry(invmyc_20, "20 GeV", "L");
+      leg103->Draw();
+
+
+      
+      TCanvas *c43 = new TCanvas ("c43","c43",600,600); 
+      
+      invmycth_60->Draw();
+      invmycth_20->Draw("sames");
+      invmycth_60->SetLineColor(kBlue);
+      invmycth_20->SetLineColor(kRed);
+      TLegend *leg104 = new TLegend(0.55, 0.5, 0.83, 0.7);
+      leg104->SetHeader("A P_{t}");
+      leg104->AddEntry(invmycth_60, "60 GeV", "L");
+      leg104->AddEntry(invmycth_20, "20 GeV", "L");
+      leg104->Draw();
+
+    }
 }
