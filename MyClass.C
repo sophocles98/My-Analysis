@@ -149,7 +149,6 @@ void MyClass::Loop()
   TH1F *h_invmass_bjets_step3 = new TH1F("h_invmass_bjets_step3", "h_invmass_bjets_step3", 100, 0, 2000);
 
   // Before Cuts
-
   TH1F *h_dR_bbbar12 = new TH1F("h_dR_bbbar12", "h_dR_bbbar12", 100, 0, 7);
   TH1F *h_dR_bbbar34 = new TH1F("h_dR_bbbar34", "h_dR_bbbar34", 100, 0, 7);
 
@@ -191,11 +190,11 @@ void MyClass::Loop()
   TH1F *a1_pt = new TH1F("ab1_pt", "a1_pt", 100, 0, 300); 
   TH1F *a1_eta = new TH1F("ab1_eta", "a1_eta", 100, -8, 8);
   TH1F *a1_phi = new TH1F("ab1_phi", "a1_phi", 100, -5,5);
-  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 19.995, 20.005); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
+  TH1F *a1_m = new TH1F("ab1_m", "a1_m", 100, 59.995, 60.005); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
   TH1F *a2_pt = new TH1F("ab2_pt", "a2_pt", 100, 0, 300); 
   TH1F *a2_eta = new TH1F("ab2_eta", "a2_eta", 100, -8, 8);
   TH1F *a2_phi = new TH1F("ab2_phi", "a2_phi", 100, -5,5);
-  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 19.995, 20.005); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
+  TH1F *a2_m = new TH1F("ab2_m", "a2_m", 100, 59.995, 60.005); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
   TH1F *dRa12 = new TH1F("dRa12", "dRa12", 100, 0, 7);
   
   TH1F *gq_pt = new TH1F("gq_pt", "gq_pt", 100, 0, 300);
@@ -235,11 +234,11 @@ void MyClass::Loop()
   TH1F *prod4_phi = new TH1F("q4_phi", "q4_phi", 100, -5,5);
   TH1F *prod4_m = new TH1F("q4_m", "q4_m", 100, 4.2138, 4.2142);
   
-  TH1F *h_invmass_bbbar12 = new TH1F("h_invmass_bbbar12", "h_invmass_bbbar12 ", 100, 19.99, 20.01); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
+  TH1F *h_invmass_bbbar12 = new TH1F("h_invmass_bbbar12", "h_invmass_bbbar12 ", 100, 59.995, 60.005); // 20GeV 19.995, 20.005 - 40GeV 39.995, 40.005, 50GeV 49.995, 50.005 - 60GeV AND TRIG 59.995, 60.005
   TH1F *h_invmass_aboson = new TH1F("h_invmass_aboson", "h_invmass_aboson", 100, 124, 126);
 
-  TH1F *h_met_pt = new TH1F("h_met_pt", "h_met_pt", 100, 0, 400);
-  TH1F *h_met_trig_pt = new TH1F("h_met_trig_pt", "h_met_trig_pt", 100, 0, 400);
+  TH1F *h_met_pt = new TH1F("h_met_pt", "h_met_pt", 100, 0, 400); // ONLY FOR TRIG
+  TH1F *h_met_trig_pt = new TH1F("h_met_trig_pt", "h_met_trig_pt", 100, 0, 400); // ONLY FOR TRIG
   
   TH1F *trigeff_bion = new TH1F("trigeff_bion", "trigeff_bion", 100, 0, 400); // ONLY FOR TRIG
   TH1F *trigeff_er = new TH1F("trigeff_er", "trigeff_er", 100, 0, 400); // ONLY FOR TRIG
@@ -247,6 +246,17 @@ void MyClass::Loop()
   TH1F *h_nvtx = new TH1F("h_nvtx", "h_nvtx", 100, 0, 100); // ONLY FOR TRIG
   TH1F *h_nvtx_trig = new TH1F("h_nvtx_trig", "h_nvtx_trig", 100, 0, 100); // ONLY FOR TRIG
   TH1F *trigeff = new TH1F("trigeff", "trigeff", 100, 0, 400); // ONLY FOR TRIG
+  
+  TH1F *h_nvtx170 = new TH1F("h_nvtx170", "h_nvtx170", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx_trig170 = new TH1F("h_nvtx_trig170", "h_nvtx_trig170", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx150 = new TH1F("h_nvtx150", "h_nvtx150", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx_trig150 = new TH1F("h_nvtx_trig150", "h_nvtx_trig150", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx120 = new TH1F("h_nvtx120", "h_nvtx120", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx_trig120 = new TH1F("h_nvtx_trig120", "h_nvtx_trig120", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx100 = new TH1F("h_nvtx100", "h_nvtx100", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx_trig100 = new TH1F("h_nvtx_trig100", "h_nvtx_trig100", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx80 = new TH1F("h_nvtx80", "h_nvtx80", 100, 0, 100); // ONLY FOR TRIG
+  TH1F *h_nvtx_trig80 = new TH1F("h_nvtx_trig80", "h_nvtx_trig80", 100, 0, 100); // ONLY FOR TRIG
 
   TH1F *h_met_trig_pt_20 = new TH1F("h_met_trig_pt_20", "h_met_trig_pt_20", 25, 0, 400); // ONLY FOR TRIG
   TH1F *h_met_trig_pt_20_40 = new TH1F("h_met_trig_pt_20_40", "h_met_trig_pt_20_40", 25, 0, 400); // ONLY FOR TRIG
@@ -255,8 +265,6 @@ void MyClass::Loop()
   TH1F *h_met_pt_20 = new TH1F("h_met_pt_20", "h_met_pt_20", 25, 0, 400); // ONLY FOR TRIG
   TH1F *h_met_pt_20_40 = new TH1F("h_met_pt_20_40", "h_met_pt_20_40", 25, 0, 400); // ONLY FOR TRIG
   TH1F *h_met_pt_40 = new TH1F("h_met_pt_40", "h_met_pt_40", 25, 0, 400); // ONLY FOR TRIG
-
-  TH2D *eff_nvtx = new TH2D("eff_nvtx", "eff_nvtx", 100, 0, 100, 100, 0, 1.1);
 
   // Other Variables
   TH1F *h_en_mult_after = new TH1F("en_mult_after", "electrons", 5, 0, 5);
@@ -270,9 +278,14 @@ void MyClass::Loop()
   TH1F *h_dR_jet_en_after = new TH1F("h_dR_jet_en_after", "dR_jet_en_after", 100, 0, 8);
   TH1F *h_dR_jet_mn_after = new TH1F("h_dR_jet_mn_after", "dR_jet_mn_after", 100, 0, 8);
 
-  TH2D *invmas60_gen = new TH2D("invmas60_gen", "invmas60_gen", 100, 0, 180, 100, 80, 200); // 80 200
-  TH2D *invmas20_gen = new TH2D("invmas20_gen", "invmas20_gen", 100, 0, 180, 100, 20, 160); // 20 160
+  TH2D *invmas_gen = new TH2D("invmas_gen", "invmas_gen", 100, 0, 180, 100, 0, 160); // 80 200
+  TH2D *invmas20_gen = new TH2D("invmas20_gen", "invmas20_gen", 100, 0, 180, 100, 0, 160); // 20 160
   TH2D *invmasbb_gen = new TH2D("invmasbb_gen", "invmasbb_gen", 100, 0, 180, 100, 0, 80); // 0 80
+
+  TH1F *vel_b1 = new TH1F("vel_b1", "vel_b1", 100, 1, 1.1);
+  TH1F *vel_a1 = new TH1F("vel_a1", "vel_a1", 100, 1, 1.1);
+  TH1F *vel_b2 = new TH1F("vel_b2", "vel_b2", 100, 1, 1.1);
+  TH1F *vel_a2 = new TH1F("vel_a2", "vel_a2", 100, 1, 1.1);
 
     
   // ----------------------------------------------------------------- COUNTERS -----------------------------------------------------------------
@@ -590,9 +603,25 @@ void MyClass::Loop()
 
       
       float dR_aboson = getDeltaR(a1, a2); // dR between the A-bosons
-      dRa12->Fill(dR_aboson); 
-      
+      dRa12->Fill(dR_aboson);
 
+
+      float velb1 = vec_genq1[0].E() / (sqrt(pow(vec_genq1[0].Px(), 2) + pow(vec_genq1[0].Py(), 2) + pow(vec_genq1[0].Pz(), 2)));
+      vel_b1->Fill(velb1);
+
+
+      float vela1 = vec_gena1[0].E() / (sqrt(pow(vec_gena1[0].Px(), 2) + pow(vec_gena1[0].Py(), 2) + pow(vec_gena1[0].Pz(), 2)));
+      vel_a1->Fill(vela1);
+
+      
+      float velb2 = vec_genq2[0].E() / (sqrt(pow(vec_genq2[0].Px(), 2) + pow(vec_genq2[0].Py(), 2) + pow(vec_genq2[0].Pz(), 2)));
+      vel_b2->Fill(velb2);
+
+
+      float vela2 = vec_gena2[0].E() / (sqrt(pow(vec_gena2[0].Px(), 2) + pow(vec_gena2[0].Py(), 2) + pow(vec_gena2[0].Pz(), 2)));
+      vel_a2->Fill(vela2);
+	
+      
       
       // ----------------------------------------------------------------- MET -----------------------------------------------------------------
 
@@ -611,14 +640,36 @@ void MyClass::Loop()
 	{
 	  h_met_pt_40->Fill(met_pt);
 	}
-      
-      bool hasMETtrigger1=(triggerType>>11)&0x1;
-      bool hasMETtrigger2=(triggerType>>12)&0x1;
-
-      if (hasMETtrigger1||hasMETtrigger2)
+      if (met_pt >= 170)
 	{
-	  h_met_trig_pt->Fill(met_pt); //MET after Trigger requirement
-	  h_nvtx_trig->Fill(nvtx);
+	  h_nvtx170->Fill(nvtx);
+	}
+      if (met_pt >= 150)
+	{
+	  h_nvtx150->Fill(nvtx);
+	}
+      if (met_pt >= 120)
+	{
+	  h_nvtx120->Fill(nvtx);
+	}
+      if (met_pt >= 100)
+	{
+	  h_nvtx100->Fill(nvtx);
+	}
+      if (met_pt >= 80)
+	{
+	  h_nvtx80->Fill(nvtx);
+	}
+
+      
+      bool hasMETtrigger1=(triggerType>>11)&0x1; // 120
+      //bool hasMETtrigger2=(triggerType>>12)&0x1; // 120 & 60 HT
+
+      if (hasMETtrigger1 /*|| hasMETtrigger2*/)
+	{
+	  h_met_trig_pt->Fill(met_pt); // MET after Trigger requirment
+	  h_nvtx_trig->Fill(nvtx); // nvtx after trigger requirment 
+	  
 	  if (nvtx <= 20)
 	    {
 	      h_met_trig_pt_20->Fill(met_pt);
@@ -631,8 +682,29 @@ void MyClass::Loop()
 	    {
 	      h_met_trig_pt_40->Fill(met_pt);
 	    }
-	  
+	  if (met_pt >= 170)
+	    {
+	      h_nvtx_trig170->Fill(nvtx);
+	    }
+	  if (met_pt >= 150)
+	    {
+	      h_nvtx_trig150->Fill(nvtx);
+	    }
+	  if (met_pt >= 120)
+	    {
+	      h_nvtx_trig120->Fill(nvtx);
+	    }
+	  if (met_pt >= 100)
+	    {
+	      h_nvtx_trig100->Fill(nvtx);
+	    }
+	  if (met_pt >= 80)
+	    {
+	      h_nvtx_trig80->Fill(nvtx);
+	    }
 	}
+
+      
     
       
       // ----------------------------------------------------------------------------------------------------------------------------------
@@ -993,28 +1065,17 @@ void MyClass::Loop()
   for (int b = 0; b < 10000; b++) // Invariant mass as a function of θ angle
     {
       float th = gRandom->Uniform(0,180);
-      float calc60 = sqrt(2 * pow(60, 2) + 2 * (pow(60, 2) + pow(50, 2)) * (1 - cos(th * (Pi() / 180)))); // Ma=60Gev 
-      float calc20 = sqrt(2 * pow(20, 2) + 2 * (pow(20, 2) + pow(70, 2)) * (1 - cos(th * (Pi() / 180)))); // Ma=20Gev 
-      float calcbb = sqrt(2 * pow(4.18, 2) + 2 * (pow(4.18, 2) + pow(35, 2)) * (1 - cos(th * (Pi() / 180)))); // Mb=4.18GeV
-      
-      invmas60_gen->Fill(th, calc60); 
+      float calc = sqrt(2 * pow(75, 2) * (1 - cos(th * (Pi() / 180)))); // E1 = E2 = 75 GeV 
+      float calc20 = sqrt(2 * pow(20, 2) + 2 * (pow(20, 2) + pow(70, 2)) * (1 - cos(th * (Pi() / 180)))); // Ma = 20 Gev 
+      float calcbb = sqrt(2 * pow(4.18, 2) + 2 * (pow(4.18, 2) + pow(35, 2)) * (1 - cos(th * (Pi() / 180)))); // Mb = 4.18 GeV
+   
+      invmas_gen->Fill(th, calc); 
       invmas20_gen->Fill(th, calc20);
       invmasbb_gen->Fill(th, calcbb);
     }
 
-  // for (int b = 0; b < 10000; b++) // Invariant mass as a function of θ angle
-  //   {
-  //     float th = gRandom->Uniform(0,180);
-  //     float calc60 = sqrt(2 * pow(60, 2) + 2 * (pow(60, 2) + pow(50, 2)) * (1 - 9 * cos(th * (Pi() / 180)))); // Ma=60Gev 
-  //     float calc20 = sqrt(2 * pow(20, 2) + 2 * (pow(20, 2) + pow(70, 2)) * (1 - 9 * cos(th * (Pi() / 180)))); // Ma=20Gev 
-  //     float calcbb = sqrt(2 * pow(4.18, 2) + 2 * (pow(4.18, 2) + pow(35, 2)) * (1 - 9 * cos(th * (Pi() / 180)))); // Mb=4.18GeV
-      
-  //     invmas60_gen->Fill(th, calc60); 
-  //     invmas20_gen->Fill(th, calc20);
-  //     invmasbb_gen->Fill(th, calcbb);
-  //   }
-  
-  
+
+    
   // ---------------------------------------------------------------EVENT FLOW TABLE------------------------------------------------------------------
 
   
@@ -1037,7 +1098,7 @@ void MyClass::Loop()
 
 
 
-  TFile *f = new TFile("myanalysis_20.root", "RECREATE");
+  TFile *f = new TFile("myanalysis_60.root", "RECREATE");
   
   jet_pt_tot->Write();
   jet_eta_tot->Write();
@@ -1257,11 +1318,26 @@ void MyClass::Loop()
   h_met_pt_20_40->Write();
   h_met_pt_40->Write();
 
-  eff_nvtx->Write();
+  h_nvtx_trig170->Write();
+  h_nvtx170->Write();
+  h_nvtx_trig150->Write();
+  h_nvtx150->Write();
+  h_nvtx_trig120->Write();
+  h_nvtx120->Write();
+  h_nvtx_trig100->Write();
+  h_nvtx100->Write();
+  h_nvtx_trig80->Write();
+  h_nvtx80->Write();
 
-  invmas60_gen->Write();
+  invmas_gen->Write();
   invmas20_gen->Write();
   invmasbb_gen->Write();
+
+  vel_b1->Write();
+  vel_b2->Write();
+  vel_a1->Write();
+  vel_a2->Write();
+
       
   f->Close();
 

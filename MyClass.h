@@ -12,10 +12,10 @@
 #include <TChain.h>
 #include <TFile.h>
 
-bool analysis20(true);
+bool analysis20(false);
 bool analysis40(false);
 bool analysis50(false);
-bool analysis60(false);
+bool analysis60(true);
 bool trig(false);
 bool trig2(false);
 
@@ -395,11 +395,11 @@ MyClass::MyClass(TTree *tree) : fChain(0)
   if (analysis20)
     {
       if (tree == 0) {
-	TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("analysis_total20gev.root");
+	TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("analysis_total20gev1.root");
 	if (!f || !f->IsOpen()) {
-	  f = new TFile("analysis_total20gev.root");
+	  f = new TFile("analysis_total20gev1.root");
 	}
-	TDirectory * dir = (TDirectory*)f->Get("analysis_total20gev.root:/mainNtuplizer");
+	TDirectory * dir = (TDirectory*)f->Get("analysis_total20gev1.root:/mainNtuplizer");
 	dir->GetObject("data",tree);
 
       }
